@@ -68,6 +68,7 @@ const Home = () => {
       })
   )
 
+  console.log('[]', majorCitiesQuery)
   return (
     <div className="pt-5">
       <Header />
@@ -90,9 +91,10 @@ const Home = () => {
         <div className="px-7 m-5">
           <p className="mb-5 text-center text-lg text-bold">Major cities:</p>
           <div className="grid gap-3 lg:grid-cols-3 lg:px-7">
-            {majorCitiesQuery.map( result => (
+            {majorCitiesQuery.length && majorCitiesQuery.map( result => (
                 // eslint-disable-next-line react/jsx-key
                 <Card
+                    key={result.data}
                     weatherData={result.data}
                     error={result.error}
                     isLoading={result.isLoading}
