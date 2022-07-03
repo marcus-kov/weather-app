@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  API_ADDRESS_SEARCH,
+  GEO_LOCATION_API_URL,
   API_ADDRESS_SEARCH_API_KEY,
 } from "../../utils/constants";
 
@@ -9,7 +9,7 @@ export const getLocation = ({ query }) => {
 
   const options = {
     method: "GET",
-    url: `${API_ADDRESS_SEARCH}/geocode/autocomplete?`,
+    url: `${GEO_LOCATION_API_URL}/geocode/autocomplete?`,
     params: {
       apiKey: API_ADDRESS_SEARCH_API_KEY,
       text: query,

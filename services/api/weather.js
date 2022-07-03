@@ -1,12 +1,12 @@
 import axios from "axios";
-import { API_KEY, API_URL } from "../../utils/constants";
+import { API_KEY, OPEN_WEATHER_API_UTL } from "../../utils/constants";
 
-// const API_URL = "http://localhost:8000";
+// const OPEN_WEATHER_API_UTL = "http://localhost:8000";
 
 export const getWeather = ({ lat, lon }) => {
   const options = {
     method: "GET",
-    url: `${API_URL}/weather?`,
+    url: `${OPEN_WEATHER_API_UTL}/weather?`,
     params: {
       lat,
       lon,
@@ -27,7 +27,7 @@ export const getWeather = ({ lat, lon }) => {
 export const getAirQuality = ({ lat, lon }) => {
   const options = {
     method: "GET",
-    url: `${API_URL}/air_pollution?`,
+    url: `${OPEN_WEATHER_API_UTL}/air_pollution?`,
     params: {
       lat,
       lon,
