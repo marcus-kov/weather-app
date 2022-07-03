@@ -1,17 +1,17 @@
 import axios from "axios";
-import { API_KEY, OPEN_WEATHER_API_UTL } from "../../utils/constants";
+import { OPEN_WEATHER_API_KEY, OPEN_WEATHER_API_URL } from "../../utils/constants";
 
-// const OPEN_WEATHER_API_UTL = "http://localhost:8000";
+// const OPEN_WEATHER_API_URL = "http://localhost:8000";
 
 export const getWeather = ({ lat, lon }) => {
   const options = {
     method: "GET",
-    url: `${OPEN_WEATHER_API_UTL}/weather?`,
+    url: `${OPEN_WEATHER_API_URL}/weather?`,
     params: {
       lat,
       lon,
       units: "metric",
-      appid: API_KEY,
+      appid: OPEN_WEATHER_API_KEY,
     },
     headers: {
       "X-RapidAPI-Key": "6c99b57b652c991f2e8efe771f5e1400",
@@ -27,12 +27,12 @@ export const getWeather = ({ lat, lon }) => {
 export const getAirQuality = ({ lat, lon }) => {
   const options = {
     method: "GET",
-    url: `${OPEN_WEATHER_API_UTL}/air_pollution?`,
+    url: `${OPEN_WEATHER_API_URL}/air_pollution?`,
     params: {
       lat,
       lon,
       units: "metric",
-      appid: API_KEY,
+      appid: OPEN_WEATHER_API_KEY,
     },
     headers: {
       "X-RapidAPI-Key": "6c99b57b652c991f2e8efe771f5e1400",
