@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 20.417,
+    "lat": 44.7736
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 34.26,
+    "feels_like": 35.12,
+    "temp_min": 33.52,
+    "temp_max": 35.01,
+    "pressure": 1009,
+    "humidity": 37
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3.09,
+    "deg": 300
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1656592390,
+  "sys": {
+    "type": 1,
+    "id": 7028,
+    "country": "RS",
+    "sunrise": 1656557737,
+    "sunset": 1656613681
+  },
+  "timezone": 7200,
+  "id": 791704,
+  "name": "Čukarica",
+  "cod": 200
+}
