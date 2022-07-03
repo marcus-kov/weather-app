@@ -27,8 +27,8 @@ function MyApp({ Component, pageProps }) {
               name: "Stockholm",
             },
             {
-              lat: 55.6761,
-              lon: 12.5683,
+              lat: 41.9028,
+              lon: 12.4964,
               name: "Copenhagen",
             },
           ],

@@ -28,11 +28,11 @@ export const AirQualityCard = ({ airQualityData, isLoading, error }) => {
   }
 
   return (
-    <Wrapper classNames="text-center">
-      <h4 className="text-3xl mx-4 ">Air Quality</h4>
-      <div className="flex flex-col items-center">
+    <Wrapper classNames="card-wrapper text-center">
+      <h4 className="mb-9 text-3xl px-8">Air Quality</h4>
+      <div className="flex flex-col items-center mb-3">
         <img src={`/assets/${airQualityData.list[0].main.aqi}-air.png`} />
-        <p className="font-bold text-3xl my-4">
+        <p className="font-bold text-3xl my-4 lg:my-4">
           {mapAirQuality(airQualityData.list[0].main.aqi)}
         </p>
       </div>

@@ -59,30 +59,27 @@ const Home = () => {
     }
   }, []);
 
-  const userQueries = useQueries(
+  const majorCitiesQuery = useQueries(
       majorCities.map(city => {
         return {
-          queryKey: ['user', city.name],
+          queryKey: ['majorCities', city.name],
           queryFn: () => getWeather({ lat: city.lat, lon:city.lon }),
         }
       })
   )
 
-  console.log('[]', userQueries);
-
   return (
-    <div className="py-12">
+    <div className="pt-5">
       <Header />
       <div className="mt-10">
         {errorGettingLocation && <div>Error getting your location</div>}
 
-        <div className="flex items-center justify-evenly">
-          {!isLoadingCurrentWeather && currentWeather && (
-            <CurrentLocationWeather
+        <div className="flex items-center justify-evenly flex-col lg:flex-row">
+          <CurrentLocationWeather
               currentWeather={currentWeather}
               isLoading={isLoadingCurrentWeather}
-            />
-          )}
+              error={currentWeatherError}
+          />
           <AirQualityCard
             airQualityData={airQualityData}
             isLoading={isLoadingAirQuality}
@@ -91,9 +88,9 @@ const Home = () => {
         </div>
 
         <div className="px-7 m-5">
-          <p className="mb-5">Major cities:</p>
-          <div className="grid grid-cols-3 gap-3 px-7">
-            {userQueries.map( result => (
+          <p className="mb-5 text-center text-lg text-bold">Major cities:</p>
+          <div className="grid gap-3 lg:grid-cols-3 lg:px-7">
+            {majorCitiesQuery.map( result => (
                 // eslint-disable-next-line react/jsx-key
                 <Card
                     weatherData={result.data}

@@ -12,19 +12,18 @@ export const Card = React.memo(({ weatherData, error, isLoading }) => {
     return <div>{error.message}</div>;
   }
 
-  //className="flex px-2 shadow drop-shadow-md justify-self-center"
   return (
     <Wrapper>
-      <div className="w-2/6 h-auto  items-center flex flex-row justify-self-center">
-        <h4 className="text-3xl mx-4 ">{weatherData.name}</h4>
-        <p className="font-bold text-3xl my-4">
-          {Math.floor(weatherData.main.temp)}&#8451;
-        </p>
-        <p>{weatherData.main.description}</p>
+      <div className="flex flex-col justify-self-center text-center w-full lg:flex-row lg:w-full lg:items-center">
+        <h4 className="text-3xl mx-4">{weatherData.name}</h4>
         <img
+          className="w-4/12 self-center lg:w-2/6"
           src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
           alt="weather icon logo"
         />
+        <p className="font-bold text-3xl lg:my-4">
+          {Math.floor(weatherData.main.temp)}&#8451;
+        </p>
       </div>
     </Wrapper>
   );

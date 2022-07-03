@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
-import { SearchBar } from "./SearchBar";
-import { ResultsList } from "./ResultsList";
+import {useState, useContext, useCallback} from "react";
+import { SearchBar, ResultsList } from "../SearchBar";
 import { useDebounce } from "use-debounce";
 import { useQuery } from "react-query";
 import { getLocation } from "../../services/api";
@@ -14,7 +13,7 @@ export const Header = () => {
 
   const { setLocation } = contextValues;
 
-  const { isLoading, error, isFetching, data } = useQuery(
+  const { error, isFetching, data } = useQuery(
     ["searchList", debouncedSearchTerm],
     () => getLocation({ query: debouncedSearchTerm }),
     {
@@ -22,12 +21,17 @@ export const Header = () => {
     }
   );
 
+  const onItemClick = useCallback((value) => {
+      setCitySearchParam('');
+      setLocation(value);
+  }, [setLocation]);
+
   return (
-    <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="max-w-7xl mx-auto px-4 sm:p-3 lg:px-8">
       <TitleSubtitle />
       <SearchBar onUserInput={setCitySearchParam} />
-      {data && !isFetching && (
-        <ResultsList autoCompleteList={data.results} onSelect={setLocation} />
+      {citySearchParam && data && !isFetching && (
+        <ResultsList autoCompleteList={data.results} onSelect={onItemClick} />
       )}
     </header>
   );

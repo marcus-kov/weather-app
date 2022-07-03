@@ -17,3 +17,9 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.card-wrapper {
+  height: 350px;
+  width: 250px;
+}
