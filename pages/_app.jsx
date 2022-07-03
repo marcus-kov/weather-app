@@ -17,9 +17,19 @@ function MyApp({ Component, pageProps }) {
           location,
           majorCities: [
             {
-              lat: 1,
-              lon: 1,
+              lat: 52.3676,
+              lon: 4.9041,
+              name: "Amsterdam",
+            },
+            {
+              lat: 59.3293,
+              lon: 18.0686,
               name: "Stockholm",
+            },
+            {
+              lat: 55.6761,
+              lon: 12.5683,
+              name: "Copenhagen",
             },
           ],
         },
