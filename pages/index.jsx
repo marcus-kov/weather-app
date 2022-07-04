@@ -5,7 +5,7 @@ import AppContext from "../AppContext";
 
 import {
   AirQualityCard,
-  Card,
+  SmallCard,
   CurrentLocationWeather,
 } from "../components/Card";
 import { getAirQuality, getWeather } from "../services/api";
@@ -68,7 +68,6 @@ const Home = () => {
       })
   )
 
-  console.log('[]', majorCitiesQuery)
   return (
     <div className="pt-5">
       <Header />
@@ -90,11 +89,11 @@ const Home = () => {
 
         <div className="px-7 m-5">
           <p className="mb-5 text-center text-lg text-bold">Major cities:</p>
-          <div className="grid gap-3 lg:grid-cols-3 lg:px-7">
-            {majorCitiesQuery.length && majorCitiesQuery.map( result => (
+          <div className="grid gap-3 md:grid-rows-3 md:grid-cols-none lg:grid-cols-3 lg:px-7">
+            {majorCitiesQuery.length && majorCitiesQuery.map( (result, index) => (
                 // eslint-disable-next-line react/jsx-key
-                <Card
-                    key={result.data}
+                <SmallCard
+                    key={majorCities[index].name}
                     weatherData={result.data}
                     error={result.error}
                     isLoading={result.isLoading}
